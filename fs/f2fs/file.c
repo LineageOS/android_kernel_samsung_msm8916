@@ -2371,7 +2371,7 @@ static ssize_t f2fs_file_splice_write(struct pipe_inode_info *pipe,
 	ret = f2fs_preallocate_blocks(inode, *ppos, len, false);
 	if (ret)
 		return ret;
-	return generic_file_splice_write(pipe, out, ppos, len, flags);
+	return iter_file_splice_write(pipe, out, ppos, len, flags);
 }
 
 const struct file_operations f2fs_file_operations = {
